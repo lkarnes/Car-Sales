@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { fromEventPattern } from 'rxjs';
 
 const Total = props => {
   return (
@@ -8,4 +10,12 @@ const Total = props => {
   );
 };
 
-export default Total;
+const mapPropsToState = state => {
+  return {
+    car: state.car,
+    additionalPrice: state.additionalPrice
+  }
+}
+
+export default connect(mapPropsToState, {})(Total);
+
